@@ -1,4 +1,4 @@
-package com.tiankonglanlande.cn.springboot.mybatis.typehandler;
+package iilibxc.springboot.mybatis.druid.typehandler;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;

@@ -1,6 +1,6 @@
-package com.tiankonglanlande.cn.springboot.mybatis.dao;
+package iilibxc.springboot.mybatis.druid.dao;
 
-import com.tiankonglanlande.cn.springboot.mybatis.bean.Student;
+import iilibxc.springboot.mybatis.druid.bean.Student;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;

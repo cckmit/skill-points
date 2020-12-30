@@ -21,9 +21,9 @@ spring:
       cache: false
 
 mybatis:
-  type-handlers-package:  com.tiankonglanlande.cn.springboot.mybatis.typehandler
+  type-handlers-package:  iilibxc.springboot.mybatis.druid.typehandler.typehandler
   mapperLocations: classpath:mapper/**.xml
-  typeAliasesPackage:  com.tiankonglanlande.cn.springboot.mybatis.bean
+  typeAliasesPackage:  iilibxc.springboot.mybatis.druid.bean
   # 开启自动映射
   configuration:
     map-underscore-to-camel-case: true

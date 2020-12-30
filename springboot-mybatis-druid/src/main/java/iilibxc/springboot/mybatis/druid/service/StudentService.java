@@ -1,7 +1,7 @@
-package com.tiankonglanlande.cn.springboot.mybatis.service;
+package iilibxc.springboot.mybatis.druid.service;
 
-import com.tiankonglanlande.cn.springboot.mybatis.bean.Student;
-import com.tiankonglanlande.cn.springboot.mybatis.dao.StudentDao;
+import iilibxc.springboot.mybatis.druid.bean.Student;
+import iilibxc.springboot.mybatis.druid.dao.StudentDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

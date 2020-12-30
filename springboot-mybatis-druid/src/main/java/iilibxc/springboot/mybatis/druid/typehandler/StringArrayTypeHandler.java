@@ -1,4 +1,4 @@
-package com.tiankonglanlande.cn.springboot.mybatis.typehandler;
+package iilibxc.springboot.mybatis.druid.typehandler;
 
 import org.apache.ibatis.type.BaseTypeHandler;
 import org.apache.ibatis.type.JdbcType;

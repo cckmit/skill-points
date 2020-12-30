@@ -1,7 +1,7 @@
-package com.tiankonglanlande.cn.springboot.mybatis.controller;
+package iilibxc.springboot.mybatis.druid.controller;
 
-import com.tiankonglanlande.cn.springboot.mybatis.bean.Student;
-import com.tiankonglanlande.cn.springboot.mybatis.service.StudentService;
+import iilibxc.springboot.mybatis.druid.bean.Student;
+import iilibxc.springboot.mybatis.druid.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

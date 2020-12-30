@@ -1,9 +1,8 @@
-package com.tiankonglanlande.cn.springboot.mybatis.typehandler;
+package iilibxc.springboot.mybatis.druid.typehandler;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.tiankonglanlande.cn.springboot.mybatis.bean.CityBean;
+import iilibxc.springboot.mybatis.druid.bean.CityBean;
 import org.apache.ibatis.type.BaseTypeHandler;
 import org.apache.ibatis.type.JdbcType;
 import org.springframework.util.StringUtils;

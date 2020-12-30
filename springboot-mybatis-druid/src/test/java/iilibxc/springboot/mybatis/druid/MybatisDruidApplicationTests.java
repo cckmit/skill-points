@@ -1,4 +1,4 @@
-package com.tiankonglanlande.cn.springboot.mybatis;
+package iilibxc.springboot.mybatis.druid;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

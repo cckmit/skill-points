@@ -1,4 +1,4 @@
-package com.tiankonglanlande.cn.springboot.mybatis.bean;
+package iilibxc.springboot.mybatis.druid.bean;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
