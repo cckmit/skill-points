@@ -1,8 +1,6 @@
 package cn.huanzi.qch.springbootmybatisplus.$!{cfg.abc}.service;
 
-import cn.huanzi.qch.springbootmybatisplus.common.service.CommonService;
-import cn.huanzi.qch.springbootmybatisplus.$!{cfg.abc}.entity.${entity};
-import cn.huanzi.qch.springbootmybatisplus.$!{cfg.abc}.entity.${entity}Vo;
+import cn.huanzi.qch.springbootmybatisplus.$!{cfg.abc}.entity.${entity};$!{cfg.abc}.entity.${entity}Vo;
 
 /**
  * <p>
