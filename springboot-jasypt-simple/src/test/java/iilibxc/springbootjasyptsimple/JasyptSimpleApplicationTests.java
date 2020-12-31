@@ -1,4 +1,4 @@
-package com.tiankonglanlande.cn.springboot.jasypt.simple;
+package iilibxc.springbootjasyptsimple;
 
 import org.jasypt.encryption.StringEncryptor;
 import org.junit.Test;
