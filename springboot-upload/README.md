@@ -56,11 +56,6 @@ result.html结果页面
 
 FileUploadController.java
 ```java
-/**
- * @author 猿份哥
- * @description
- * @createTime 2019/1/6 20:29
- */
 @Controller
 public class FileUploadController {
     @Value("${file.path}")
@@ -100,11 +95,6 @@ spring.servlet.multipart.max-request-size=50MB
 #### 多文件上传
 FileUploadController.java
 ```java
-/**
- * @author 猿份哥
- * @description
- * @createTime 2019/1/6 20:29
- */
 @Controller
 public class FileUploadController {
     @RequestMapping("/toMultiUpload")

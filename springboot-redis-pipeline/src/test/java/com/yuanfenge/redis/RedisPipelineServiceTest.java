@@ -12,11 +12,6 @@ import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 
-/**
- * @author 猿份哥
- * @description
- * @createTime 2019/8/01 20:35
- */
 @SpringBootTest
 @RunWith(SpringRunner.class)
 public class RedisPipelineServiceTest {

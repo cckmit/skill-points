@@ -12,11 +12,6 @@ import org.springframework.web.reactive.function.server.ServerResponse;
 import static org.springframework.web.reactive.function.server.RequestPredicates.GET;
 import static org.springframework.web.reactive.function.server.RouterFunctions.route;
 
-/**
- * @author 猿份哥
- * @description
- * @createTime 2019/2/24 11:53
- */
 @Configuration
 public class StudentRouter {
 

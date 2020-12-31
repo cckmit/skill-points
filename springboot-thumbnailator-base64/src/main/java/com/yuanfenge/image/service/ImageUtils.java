@@ -7,11 +7,6 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.*;
 
-/**
- * @author 猿份哥
- * @description
- * @createTime 2019/8/04 18:37
- */
 public class ImageUtils {
 
     private static String ImageFormat="jpg";

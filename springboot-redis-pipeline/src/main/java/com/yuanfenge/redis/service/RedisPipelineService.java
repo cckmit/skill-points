@@ -15,11 +15,6 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
-/**
- * @author 猿份哥
- * @description
- * @createTime 2019/8/01 21:00
- */
 @Service
 public class RedisPipelineService {
 

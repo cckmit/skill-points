@@ -11,12 +11,6 @@ import lombok.Data;
 import lombok.experimental.Accessors;
 
 /**
- * <p>
- * $!{table.comment}
- * </p>
- *
- * @author ${author}
- * @since ${date}
  */
 @Data
   #if(${chainModel})

@@ -13,11 +13,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
-/**
- * @author 猿份哥
- * @description
- * @createTime 2019/1/6 20:29
- */
 @Controller
 public class FileUploadController {
     @Value("${file.path}")

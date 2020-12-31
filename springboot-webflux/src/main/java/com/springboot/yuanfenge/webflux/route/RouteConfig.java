@@ -8,11 +8,6 @@ import org.springframework.web.reactive.function.server.RouterFunction;
 import org.springframework.web.reactive.function.server.ServerResponse;
 import static org.springframework.web.reactive.function.server.RouterFunctions.route;
 import static org.springframework.web.reactive.function.server.RequestPredicates.GET;
-/**
- * @author 猿份哥
- * @description
- * @createTime 2019/1/29 22:54
- */
 @Configuration
 public class RouteConfig {
     @Autowired

@@ -104,7 +104,7 @@ public class DataSourceConfig2 {
 ```java
 
 /**
- * @auth 猿份哥
+ * @auth 
  * @description
  * @createTime 2020 - 5 - 19 16:45
  */
@@ -138,4 +138,4 @@ public class TestController {
 
 [原文链接: https://www.lskyf.com/post/103](https://www.lskyf.com/post/103)
 
-作者：猿份哥，版权所有，欢迎保留原文链接进行转载：)
+作者：，版权所有，欢迎保留原文链接进行转载：)

@@ -12,11 +12,6 @@ import reactor.core.publisher.Mono;
 
 import static org.springframework.web.reactive.function.server.ServerResponse.ok;
 
-/**
- * @author 猿份哥
- * @description
- * @createTime 2019/1/29 22:57
- */
 @Component
 public class StudentHandler {
     @Autowired

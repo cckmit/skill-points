@@ -17,11 +17,6 @@ pom.xml文件引入依赖文件spring-boot-starter-webflux，是整个项目webf
 定义学生实体类：包括姓名和年龄属性
 ```java
 
-/**
- * @author 猿份哥
- * @description
- * @createTime 2019/1/29 22:35
- */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -35,17 +30,12 @@ public class Student {
 
 StuService.java定义了一个查询单个学生获取的方法selectSimple，和学生列表获取的方法selectList
 ```java
-/**
- * @author 猿份哥
- * @description
- * @createTime 2019/1/29 22:36
- */
 @Service
 public class StuService {
 
     public Student selectSimple(){
         return Student.builder()
-                .name("猿份哥")
+                .name("")
                 .age(20)
                 .build();
     }
@@ -54,7 +44,7 @@ public class StuService {
         List<Student> datas=new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             Student item=Student.builder()
-                    .name("猿份哥"+i)
+                    .name(""+i)
                     .age(20+i)
                     .build();
             datas.add(item);
@@ -67,11 +57,6 @@ public class StuService {
 FluxController.java
 ```java
 
-/**
- * @author 猿份哥
- * @description
- * @createTime 2019/1/29 22:34
- */
 @RestController
 @RequestMapping("/student")
 public class FluxController {
@@ -97,7 +82,7 @@ public class FluxController {
 返回结果：单个学生信息
 ```json
 {
-    "name": "猿份哥",
+    "name": "",
     "age": 20
 }
 ```
@@ -106,11 +91,11 @@ public class FluxController {
 ```json
 [
     {
-        "name": "猿份哥0",
+        "name": "0",
         "age": 20
     },
     {
-        "name": "猿份哥1",
+        "name": "1",
         "age": 21
     }
 ]
@@ -123,11 +108,6 @@ public class FluxController {
 
 StudentHandler.java
 ```java
-/**
- * @author 猿份哥
- * @description
- * @createTime 2019/1/29 22:57
- */
 @Component
 public class StudentHandler {
     @Autowired
@@ -159,11 +139,6 @@ Flux.fromIterable：返回多条数据信息
 
 RouteConfig.java
 ```java
-/**
- * @author 猿份哥
- * @description
- * @createTime 2019/1/29 22:54
- */
 @Configuration
 public class RouteConfig {
     @Autowired
@@ -194,7 +169,7 @@ GET：接收GET请求和访问路径如："/stu"静态方法导入import static 
 返回结果：单个学生信息
 ```json
 {
-    "name": "猿份哥",
+    "name": "",
     "age": 20
 }
 ```
@@ -204,11 +179,11 @@ GET：接收GET请求和访问路径如："/stu"静态方法导入import static 
 ```json
 [
     {
-        "name": "猿份哥0",
+        "name": "0",
         "age": 20
     },
     {
-        "name": "猿份哥1",
+        "name": "1",
         "age": 21
     }
 ]
@@ -217,6 +192,6 @@ GET：接收GET请求和访问路径如："/stu"静态方法导入import static 
 
 [原文链接: http://www.lskyf.com/view/37](http://www.lskyf.com/view/37)
 
-作者：猿份哥，版权所有，欢迎保留原文链接进行转载：)
+作者：，版权所有，欢迎保留原文链接进行转载：)
 
 

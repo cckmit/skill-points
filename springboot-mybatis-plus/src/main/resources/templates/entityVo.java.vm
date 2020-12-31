@@ -12,8 +12,6 @@ import lombok.Data;
  * $!{table.comment}
  * </p>
  *
- * @author ${author}
- * @since ${date}
  */
 @Data
 public class ${entity}Vo extends PageCondition {

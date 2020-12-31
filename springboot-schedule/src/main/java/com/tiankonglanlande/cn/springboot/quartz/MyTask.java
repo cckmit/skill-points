@@ -6,9 +6,6 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
-/**
- * @author 猿份哥
- */
 @Slf4j
 @EnableScheduling
 @Component

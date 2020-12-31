@@ -10,9 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/**
- * @author 猿份哥
- */
 @WebServlet(urlPatterns = "/my/ayncservlet",asyncSupported = true)
 public class MyAyncServlet extends HttpServlet {
 

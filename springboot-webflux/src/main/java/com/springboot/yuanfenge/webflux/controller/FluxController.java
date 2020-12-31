@@ -8,11 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-/**
- * @author 猿份哥
- * @description
- * @createTime 2019/1/29 22:34
- */
 @RestController
 @RequestMapping("/student")
 public class FluxController {

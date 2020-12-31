@@ -3,12 +3,6 @@ package cn.huanzi.qch.springbootmybatisplus.$!{cfg.abc}.service;
 import cn.huanzi.qch.springbootmybatisplus.$!{cfg.abc}.entity.${entity};$!{cfg.abc}.entity.${entity}Vo;
 
 /**
- * <p>
- * $!{table.comment} 服务类
- * </p>
- *
- * @author ${author}
- * @since ${date}
  */
 public interface ${table.serviceName}  extends CommonService<${entity}Vo,${entity}> {
 
