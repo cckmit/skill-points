@@ -8,11 +8,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-/**
- * 
- * @description
- * @createTime 2020 -  - 19 16:46
- */
 @Service
 public class TestService {
 

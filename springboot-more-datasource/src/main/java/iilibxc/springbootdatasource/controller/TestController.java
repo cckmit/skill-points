@@ -8,11 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-/**
- * @auth 
- * @description
- * @createTime 2020 - 5 - 19 16:45
- */
 @RestController
 public class TestController {
 
