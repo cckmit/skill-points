@@ -9,7 +9,7 @@
 
     <!--继承父类-->
     <parent>
-        <groupId>cn.huanzi.qch</groupId>
+        <groupId>iilibxc</groupId>
         <artifactId>parent</artifactId>
         <version>1.0.0</version>
     </parent>

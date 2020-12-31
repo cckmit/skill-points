@@ -5,15 +5,14 @@
     <artifactId>springboot-uniapp-mui</artifactId>
     <version>0.0.1</version>
     <name>springboot-uniapp-mui</name>
-    <description>uni-app + mui + springboot</description>
+    <description>SpringBoot系列——uniapp-mui</description>
 
     <!--继承父类-->
     <parent>
-        <groupId>cn.huanzi.qch</groupId>
+        <groupId>iilibxc</groupId>
         <artifactId>parent</artifactId>
         <version>1.0.0</version>
     </parent>
-
     <dependencies>
         <!--aop 面向切面-->
         <dependency>

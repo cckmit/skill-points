@@ -5,16 +5,14 @@
     <artifactId>springboot-thymeleaf</artifactId>
     <version>0.0.1</version>
     <name>springboot-thymeleaf</name>
-    <description>SpringBoot系列——Thymeleaf模板</description>
-    <packaging>jar</packaging>
+    <description>SpringBoot系列——thymeleaf</description>
 
     <!--继承父类-->
     <parent>
-        <groupId>cn.huanzi.qch</groupId>
+        <groupId>iilibxc</groupId>
         <artifactId>parent</artifactId>
         <version>1.0.0</version>
     </parent>
-
     <dependencies>
         <!-- thymeleaf模板 -->
         <dependency>

@@ -1,8 +1,6 @@
 server:
   port: 10096
 spring:
-    profiles:
-      active: ${HUANZI_PROFILE:dev}
     application:
       name: springboot-security
     thymeleaf:
