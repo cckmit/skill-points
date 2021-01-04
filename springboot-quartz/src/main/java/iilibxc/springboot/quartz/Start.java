@@ -30,8 +30,4 @@ public class Start {
 		System.out.println("myJobFactory:"+myJobFactory);
 		return schedulerFactoryBean;
 	}
-	@Bean
-	public Scheduler scheduler() {
-		return schedulerFactoryBean().getScheduler();
-	}
 }
