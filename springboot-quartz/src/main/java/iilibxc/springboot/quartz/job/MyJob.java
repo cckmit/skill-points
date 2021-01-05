@@ -15,7 +15,7 @@ import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 import javax.annotation.Resource;
 
 @Slf4j
-@Component
+//@Component
 public class MyJob implements Job {
 
     @Override
@@ -34,6 +34,6 @@ public class MyJob implements Job {
     private void executeTask() throws SchedulerException {
 
         MyService myService = (MyService) ApplicationContextUtils.getBean("myService");
-        myService.bizFunction();
+        //myService.bizFunction();
     }
 }
