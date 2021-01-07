@@ -1,5 +1,8 @@
-
+server:
+   port: 10023
 spring:
+   application:
+      name: springboot-quartz
     datasource:
        druid:
           db-type: com.alibaba.druid.pool.DruidDataSource

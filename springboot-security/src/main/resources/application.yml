@@ -1,5 +1,5 @@
 server:
-  port: 10096
+  port: 10028
 spring:
     application:
       name: springboot-security
