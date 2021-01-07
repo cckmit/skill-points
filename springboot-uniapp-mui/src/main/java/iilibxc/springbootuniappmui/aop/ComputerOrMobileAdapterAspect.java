@@ -24,7 +24,7 @@ public class ComputerOrMobileAdapterAspect {
      * Pointcut 切入点
      * 匹配controller包下面的所有方法
      */
-    @Pointcut(value = "execution(public * cn.huanzi.qch.springbootuniappmui.*.controller.*.*(..))")
+    @Pointcut(value = "execution(* iilibxc.springbootuniappmui.*.controller.*.*(..))")
     public void pointcut() {
     }
 

@@ -16,7 +16,7 @@ public class MuiWrapperController {
     /*
         底部按钮切换模式，真正项目应用中，可以从数据库动态读取
      */
-    @Value("${huanzi.buttom.switch.mode}")
+    @Value("${buttom.switch.mode}")
     private String switchMode;
 
     /*
@@ -39,7 +39,7 @@ public class MuiWrapperController {
             "url": "/muiwrapper/test4"
         }]
      */
-    @Value("${huanzi.buttom.list}")
+    @Value("${buttom.list}")
     private String buttomList;
 
     //跳转主页面
