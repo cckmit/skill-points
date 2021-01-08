@@ -1,6 +1,5 @@
 package iilibxc.springbootsecurity.sysuser.controller;
 
-import cn.huanzi.qch.springbootsecurity.common.controller.*;
 import iilibxc.springbootsecurity.common.controller.CommonController;
 import iilibxc.springbootsecurity.sysuser.pojo.SysUser;
 import iilibxc.springbootsecurity.sysuser.vo.SysUserVo;

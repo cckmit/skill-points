@@ -27,6 +27,7 @@ public class QuartzManager {
      * 开始执行定时任务
      */
     public void startJob() throws SchedulerException {
+        //13143
         startJobTask(scheduler);
         scheduler.start();
     }
@@ -36,6 +37,8 @@ public class QuartzManager {
      * @param scheduler
      */
     private void startJobTask(Scheduler scheduler) throws SchedulerException {
+
+        //4
         JobDetail jobDetail= JobBuilder.newJob(MyJob.class).withIdentity(JOB1,GROUP1).build();
         CronScheduleBuilder cronScheduleBuilder=CronScheduleBuilder.cronSchedule(DEFAULT_CRON);
         CronTrigger cronTrigger=TriggerBuilder.newTrigger().withIdentity(JOB1,GROUP1)

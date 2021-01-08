@@ -1,6 +1,5 @@
 package iilibxc.springbootsecurity.sysuserauthority.controller;
 
-import cn.huanzi.qch.springbootsecurity.common.controller.*;
 import iilibxc.springbootsecurity.sysuserauthority.pojo.SysUserAuthority;
 import iilibxc.springbootsecurity.sysuserauthority.vo.SysUserAuthorityVo;
 import iilibxc.springbootsecurity.sysuserauthority.service.SysUserAuthorityService;

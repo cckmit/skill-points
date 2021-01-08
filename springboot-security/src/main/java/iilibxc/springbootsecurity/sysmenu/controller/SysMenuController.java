@@ -1,6 +1,5 @@
 package iilibxc.springbootsecurity.sysmenu.controller;
 
-import cn.huanzi.qch.springbootsecurity.common.controller.*;
 import iilibxc.springbootsecurity.common.controller.CommonController;
 import iilibxc.springbootsecurity.sysmenu.pojo.SysMenu;
 import iilibxc.springbootsecurity.sysmenu.vo.SysMenuVo;

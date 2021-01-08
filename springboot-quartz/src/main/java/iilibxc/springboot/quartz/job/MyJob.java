@@ -15,13 +15,13 @@ import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 import javax.annotation.Resource;
 
 @Slf4j
-//@Component
+@Component
 public class MyJob implements Job {
 
     @Override
     public void execute(JobExecutionContext jobExecutionContext) throws JobExecutionException {
         // SpringBeanAutowiringSupport.processInjectionBasedOnCurrentContext(this);
-
+        //13145
         log.info("任务开始执行了");
         try {
             executeTask();
@@ -32,7 +32,7 @@ public class MyJob implements Job {
     }
 
     private void executeTask() throws SchedulerException {
-
+//13146
         MyService myService = (MyService) ApplicationContextUtils.getBean("myService");
         //myService.bizFunction();
     }
