@@ -3,7 +3,9 @@ server:
 spring:
    application:
       name: springboot-quartz
-    datasource:
+   profiles:
+      active: uat
+   datasource:
        druid:
           db-type: com.alibaba.druid.pool.DruidDataSource
           filters: stat
@@ -22,6 +24,6 @@ spring:
           use-global-data-source-stat: true
           driver-class-name: com.mysql.jdbc.Driver
 
-    profiles:
-      active: uat
+
+
 
