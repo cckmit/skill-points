@@ -13,6 +13,7 @@ public class TestController {
 
     @GetMapping("/test")
     public String test(){
+        System.out.println("test接口");
         return "test路径测试";
     }
 }

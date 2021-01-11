@@ -25,12 +25,12 @@ public class SwaggerConfig {
                 .apiInfo(new ApiInfoBuilder()
                         .title("API实时接口文档")
                         .description("用于实时查看、测试API")
-                        .contact(new Contact("huanzi-qch", "https://www.cnblogs.com/huanzi-qch/", ""))
+                        .contact(new Contact("iilibxc", "https://github.com/iilibxc", ""))
                         .version("版本号:1.0")
                         .build())
                 .select()
                 //API基础扫描路径
-                .apis(RequestHandlerSelectors.basePackage("cn.huanzi.qch.springbootswagger2.controller"))
+                .apis(RequestHandlerSelectors.basePackage("iilibxc.springbootswagger2.controller"))
                 .paths(PathSelectors.any())
                 .build();
     }
