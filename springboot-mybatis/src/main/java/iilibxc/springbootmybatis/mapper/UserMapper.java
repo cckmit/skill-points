@@ -1,13 +1,11 @@
 package iilibxc.springbootmybatis.mapper;
 
-import iilibxc.springbootmybatis.pojo.User;
-import org.apache.ibatis.annotations.*;
-import org.springframework.stereotype.Component;
+import iilibxc.springbootmybatis.bean.User;
+import tk.mybatis.mapper.common.Mapper;
 
-@Mapper
-@Component(value = "UserMapper")
-public interface UserMapper {
+import java.util.List;
 
+public interface UserMapper extends Mapper<User> {
     /**
      * 增
      */
@@ -29,8 +27,9 @@ public interface UserMapper {
 
     /**
      * 查
+     * @return
      */
 //    @Select(value = "select * from tb_user where id = #{id}")
-    User select(User user);
+    List<User> select(User user);
 
 }

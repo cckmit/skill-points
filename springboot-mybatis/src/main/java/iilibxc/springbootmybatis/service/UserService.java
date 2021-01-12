@@ -1,28 +1,21 @@
 package iilibxc.springbootmybatis.service;
 
 
-import iilibxc.springbootmybatis.pojo.Result;
-import iilibxc.springbootmybatis.pojo.User;
+import iilibxc.springbootmybatis.bean.User;
 
 public interface UserService {
 
-    /**
-     * 增
-     */
-    Result insert(User user);
+    void insert(User user);
 
-    /**
-     * 删
-     */
-    Result delete(User user);
+    void update(User user);
 
-    /**
-     * 改
-     */
-    Result update(User user);
+    void delete(Long id);
 
-    /**
-     * 查
-     */
-    Result select(User user);
+    void get(Long id);
+
+    void list();
+
+    Object page();
+
+    void pageByExample();
 }

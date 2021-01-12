@@ -26,3 +26,4 @@ mybatis:
   mapperLocations: classpath:conf/mybatis/mapper/*.xml
   # 加载全局的配置文件
   configLocation: classpath:conf/mybatis/mybatis.cfg.xml
+  typeAliasesPackage:  iilibxc.springbootmybatis.bean

@@ -5,19 +5,19 @@
 <mapper namespace="iilibxc.springbootmybatis.mapper.UserMapper">
 
     <!-- keyProperty="id"用于指定实体的那个属性接收自动生成的id -->
-    <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="iilibxc.springbootmybatis.pojo.User">
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="User">
         insert into tb_user(username,password,created) value(#{username},#{password},#{created})
     </insert>
 
-    <delete id="delete" parameterType="iilibxc.springbootmybatis.pojo.User">
+    <delete id="delete" parameterType="User">
         delete from tb_user where id = #{id}
     </delete>
 
-    <update id="update" parameterType="iilibxc.springbootmybatis.pojo.User">
+    <update id="update" parameterType="User">
         update tb_user set username = #{username} where id = #{id}
     </update>
 
-    <select id="select" parameterType="iilibxc.springbootmybatis.pojo.User" resultType="iilibxc.springbootmybatis.pojo.User">
+    <select id="select" parameterType="User" resultType="User">
 		select * from tb_user where id = #{id}
 	</select>
 
