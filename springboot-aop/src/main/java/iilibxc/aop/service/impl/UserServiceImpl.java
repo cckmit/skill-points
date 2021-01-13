@@ -12,11 +12,8 @@ public class UserServiceImpl implements UserService {
     @Override
     @SystemServiceLog(description = "测试service层日志打印")
     public String test() {
-        try {
-            throw new Exception();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+       String s= null;
+       s.toLowerCase(Locale.ROOT);
         return "测试service层日志打印";
     }
 }
