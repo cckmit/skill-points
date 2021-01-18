@@ -11,10 +11,16 @@ import javax.annotation.Resource;
 public class Service2 {
     @Resource
     UserMapper userMapper;
+
     public User selectName(Integer i) throws InterruptedException {
         Thread.sleep(1000);
-        User user = new User(i,null,null,null);
+        User user = new User(i, null, null, null);
         return userMapper.selectName(user);
     }
 
+    public User selectID(Integer i) throws InterruptedException {
+        Thread.sleep(1000);
+        User user = new User(i, null, null, null);
+        return userMapper.selectID(user);
+    }
 }
