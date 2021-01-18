@@ -77,7 +77,7 @@ public class FluxController {
 ```
 说明：item方法是调用业务层单个数据，使用Mono返回；list是调用多个数据，使用Flux返回
 
-浏览器输入：http://localhost:8080/student/item
+浏览器输入：http://localhost:10035/student/item
 
 返回结果：单个学生信息
 ```json
@@ -86,7 +86,7 @@ public class FluxController {
     "age": 20
 }
 ```
-浏览器输入：http://localhost:8080/student/list
+浏览器输入：http://localhost:10035/student/list
 返回结果：学习列表
 ```json
 [
@@ -164,7 +164,7 @@ GET：接收GET请求和访问路径如："/stu"静态方法导入import static 
 
 3.测试访问
 
-浏览器输入：http://localhost:8080/stu
+浏览器输入：http://localhost:10035/stu
 
 返回结果：单个学生信息
 ```json
@@ -173,7 +173,7 @@ GET：接收GET请求和访问路径如："/stu"静态方法导入import static 
     "age": 20
 }
 ```
-浏览器输入：http://localhost:8080/students
+浏览器输入：http://localhost:10035/students
 
 返回结果：学习列表
 ```json
@@ -188,10 +188,5 @@ GET：接收GET请求和访问路径如："/stu"静态方法导入import static 
     }
 ]
 ```
-[源码下载链接](https://github.com/tiankonglanlande/springboot)
-
-[原文链接: http://www.lskyf.com/view/37](http://www.lskyf.com/view/37)
-
-作者：，版权所有，欢迎保留原文链接进行转载：)
 
 
