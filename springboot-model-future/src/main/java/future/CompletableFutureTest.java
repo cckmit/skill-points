@@ -12,7 +12,6 @@ import java.util.concurrent.*;
 
 import static java.util.stream.Collectors.toList;
 
-@RunWith(SpringRunner.class)
 @SpringBootTest
 public class CompletableFutureTest {
     @Test
