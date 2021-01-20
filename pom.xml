@@ -6,9 +6,6 @@
     <groupId>iilibxc</groupId>
     <artifactId>parent</artifactId>
     <version>1.0.0</version>
-    <modules>
-        <module>springboot-completablefuture</module>
-    </modules>
     <packaging>pom</packaging>
     <description>SpringBoot系列demo代码</description>
 

@@ -2,9 +2,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <artifactId>springboot-completablefuture</artifactId>
-    <version>0.0.1</version>
-    <name>springboot-completablefuture</name>
+    <artifactId>springboot-8-future</artifactId>
+   <modelVersion>4.0.0</modelVersion>
+    <name>springboot-8-future</name>
     <description>SpringBoot——java8新特性completablefuture</description>
     <packaging>jar</packaging>
 
