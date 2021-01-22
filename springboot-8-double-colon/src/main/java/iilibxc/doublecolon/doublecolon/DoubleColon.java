@@ -33,4 +33,12 @@ public class DoubleColon extends BaseExample {
         System.out.println(content);
     }
 
+    //BaseExample 类并没有implements InterfaceExample接口
+    @Test
+    public void interfaceExample() {
+        System.out.println("无参类构造器语法：");
+        InterfaceExample com = BaseExample::new;
+        BaseExample bean = com.create();
+        System.out.println(bean);
+    }
 }

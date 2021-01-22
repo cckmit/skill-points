@@ -15,10 +15,7 @@ import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutorCompletionService;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.*;
 
 import static java.util.stream.Collectors.toList;
 
@@ -46,31 +43,47 @@ public class TestController {
             list.add(user3);
             long e = System.currentTimeMillis();
             System.out.println(list);
-            System.out.println("e-s:" + (e - s));
+            System.out.println("总共花费时间:" + (e - s));
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     @GetMapping("testFuture")
-    public void testFuture() {
+    public void testFuture() throws ExecutionException, InterruptedException {
         long start = System.currentTimeMillis();
-        List<Object> service = Arrays.asList(
-                service1, service2, service3);
+        Callable<User> idInfo47 = new Callable<User>() {
+            @Override
+            public User call() throws Exception {
 
-        ExecutorService executorService = Executors.newFixedThreadPool(Math.min(service.size(), 50));
+                return service1.selectID(47);
+            }
+        };
+        Callable<User> idInfo48 = new Callable<User>() {
+            @Override
+            public User call() throws Exception {
 
-        List<CompletableFuture<Object>> completableFutures = service
-                .stream()
-                .map(loader -> CompletableFuture.supplyAsync(loader::selectID, executorService))
-                .collect(toList());
+                return service1.selectID(48);
+            }
+        };
 
-        List<Object> customerDetail = completableFutures
-                .stream()
-                .map(CompletableFuture::join)
-                .collect(toList());
+        Callable<User> idInfo46 = new Callable<User>() {
+            @Override
+            public User call() throws Exception {
 
-        System.out.println(customerDetail);
+                return service1.selectID(46);
+            }
+        };
+        FutureTask<User> task1 = new FutureTask<>(idInfo46);
+        new Thread(task1).start();
+        FutureTask<User> task2 = new FutureTask<>(idInfo46);
+        new Thread(task2).start();
+        FutureTask<User> task3 = new FutureTask<>(idInfo46);
+        new Thread(task3).start();
+        List<User> list = new ArrayList<>();
+        list.add(task1.get());
+        list.add(task2.get());
+        list.add(task3.get());
         long end = System.currentTimeMillis();
         System.out.println("总共花费时间:" + (end - start));
 
