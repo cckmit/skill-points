@@ -1,6 +1,6 @@
 package iilibxc.springbootsecurity.sysuser.repository;
 
-import cn.huanzi.qch.springbootsecurity.common.repository.*;
+import iilibxc.springbootsecurity.common.repository.*;
 import iilibxc.springbootsecurity.common.repository.CommonRepository;
 import iilibxc.springbootsecurity.sysuser.pojo.SysUser;
 import org.springframework.stereotype.Repository;

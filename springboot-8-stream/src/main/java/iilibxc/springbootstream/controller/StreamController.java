@@ -34,15 +34,14 @@ public class StreamController {
             System.out.println(s);
         });
         Stream<String> stream1 = list.stream(); //获取一个顺序流
-        System.out.println(stream1);
+        System.out.println("顺序流stream1"+stream1);
 
         Stream<String> parallelStream = list.parallelStream(); //获取一个并行流
-        System.out.println(parallelStream);
+        System.out.println("并行流parallelStream"+parallelStream);
 
         Integer[] nums = new Integer[10];
-        Stream<Integer> stream2 = Arrays.stream(nums);
-        System.out.println(stream2);
-        System.out.println("---------------------");
+        Stream<Integer> stream2 = Arrays.stream(nums);//数组转成流
+        System.out.println("数组转成流stream2"+stream2);
         Stream<Integer> stream = Stream.of(1,2,3,4,5,6);
 
         Stream<Integer> stream3 = Stream.iterate(0, (x) -> x + 2).limit(6);

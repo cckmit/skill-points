@@ -6,9 +6,6 @@
     <groupId>iilibxc</groupId>
     <artifactId>parent</artifactId>
     <version>1.0.0</version>
-    <modules>
-        <module>springboot-8-stream</module>
-    </modules>
     <packaging>pom</packaging>
     <description>SpringBoot系列demo代码</description>
 
@@ -45,7 +42,10 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
         <!--lombok插件 -->
         <dependency>
             <groupId>org.projectlombok</groupId>
