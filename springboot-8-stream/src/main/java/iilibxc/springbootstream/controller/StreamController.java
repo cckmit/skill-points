@@ -93,7 +93,6 @@ public class StreamController {
         flatMap：接收一个函数作为参数，将流中的每个值都换成另一个流，然后把所有流连接成一个流。
         */
         List<String> list = Arrays.asList("a,b,c", "1,2,3");
-
         //将每个元素转成一个新的且不带逗号的元素
         Stream<String> s1 = list.stream().map(s -> s.replaceAll(",", ""));
         s1.forEach(System.out::println); // abc 123
@@ -115,5 +114,24 @@ public class StreamController {
         userStream.forEach(item -> {
             System.out.println(item.toString());
         });
+    }
+
+    /*
+    消费peek：如同于map，能得到流中的每一个元素。但map接收的是一个Function表达式，有返回值；而peek接收的是Consumer表达式，没有返回值。
+    */
+    @GetMapping("consume")
+    public void consume() {
+
+        User s1 = new User(11, "11", new Date());
+        User s2 = new User(22, "22", new Date());
+        List<User> studentList = Arrays.asList(s1, s2);
+
+        studentList.stream()
+                .peek(o -> o.setId(100))
+                .forEach(System.out::println);
+        //结果：
+        // User(id=100, name=11, date=Tue Jan 26 16:53:34 CST 2021)
+        //User(id=100, name=22, date=Tue Jan 26 16:53:34 CST 2021)
+
     }
 }
