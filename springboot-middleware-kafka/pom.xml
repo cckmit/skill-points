@@ -3,9 +3,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>springboot-kafka</artifactId>
+    <artifactId>springboot-middleware-elasticsearch</artifactId>
     <version>0.0.1</version>
-    <name>springboot-kafka</name>
+    <name>springboot-middleware-elasticsearch</name>
     <description>SpringBoot——kafka</description>
     <packaging>jar</packaging>
 
