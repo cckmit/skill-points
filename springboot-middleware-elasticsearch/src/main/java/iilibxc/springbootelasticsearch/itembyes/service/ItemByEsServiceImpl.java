@@ -68,9 +68,9 @@ public class ItemByEsServiceImpl extends CommonServiceImpl<ItemByEsVo, ItemByEs,
         Instant end = Instant.now();
 
         ArrayList novel = new ArrayList();
-        for (int i = 0; i < hits.getTotalHits(); i++) {
+        hits.forEach(item -> {
             // 得到SearchHit对象
-            SearchHit hit = hits.getAt(i);
+            SearchHit hit = item;
             // 遍历结果,使用HashMap存放
             LinkedHashMap map = new LinkedHashMap();
             map.put("Source As String", hit.getSourceAsString());
@@ -105,7 +105,7 @@ public class ItemByEsServiceImpl extends CommonServiceImpl<ItemByEsVo, ItemByEs,
             }
             map.put("Highlight", hight.toString());
             novel.add(map);
-        }
+        });
 
         System.out.println(novel);
         System.out.println("共查出" + hits.getTotalHits() + "条记录！");
