@@ -15,4 +15,9 @@ public class User {
     private Integer id;
     private String name;
     private Date date;
+
+    public static Date getNow() {
+        Date d = new Date();
+        return d;
+    }
 }

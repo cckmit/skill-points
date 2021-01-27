@@ -1,5 +1,5 @@
 package iilibxc.doublecolon.doublecolon;
 
-public interface InterfaceExample {
-    BaseExample create();
+interface InterfaceExample {
+    InterfaceMethod create();
 }
