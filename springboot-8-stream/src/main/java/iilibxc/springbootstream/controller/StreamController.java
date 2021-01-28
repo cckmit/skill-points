@@ -25,7 +25,6 @@ public class StreamController {
       3惰性求值,流在中间处理过程中,只是对操作进行了记录,并不会立即执行,需要等到执行终止操作的时候才会进行实际的计算。
      */
 
-
     @GetMapping("streamTest")
     public void streamTest() throws FileNotFoundException {
         List<String> list = Arrays.asList("a", "b", "c", "d");
@@ -249,48 +248,58 @@ public class StreamController {
     　　UNORDERED：表示该收集操作不会保留流中元素原有的顺序。
     　　IDENTITY_FINISH：表示finisher参数只是标识而已，可忽略。
     */
-    @GetMapping("ss")
-    public void ss() {
+    @GetMapping("collect")
+    public void collect() {
         User s1 = new User(44, "33", User.getNow());
-        User s2 = new User(233, "22", User.getNow());
-        User s3 = new User(223, "22", User.getNow());
-        User s4 = new User(11, "11", User.getNow());
-        List<User> list = Arrays.asList(s1, s2, s3);
-//装成list
-        List<Integer> ageList = list.stream().map(User::getId).collect(Collectors.toList()); // [10, 20, 10]
-
+        User s2 = new User(33, "22", User.getNow());
+        User s3 = new User(22, "11", User.getNow());
+        User s4 = new User(11, "44", User.getNow());
+        User s5 = new User(11, "00", User.getNow());
+        List<User> list = Arrays.asList(s1, s2, s3, s4, s5);
+        //装成list
+        List<Integer> ageList = list.stream().map(User::getId).collect(Collectors.toList()); // [44, 33, 22, 11, 11]
+        System.out.println("ageList:" + ageList);
         //转成set
-        Set<Integer> ageSet = list.stream().map(User::getId).collect(Collectors.toSet()); // [20, 10]
+        Set<Integer> ageSet = list.stream().map(User::getId).collect(Collectors.toSet()); //[33, 22, 11, 44]
+        System.out.println("ageSet:" + ageSet);
 
         //转成map,注:key不能相同，否则报错
-        Map<String, Integer> studentMap = list.stream().collect(Collectors.toMap(User::getName, User::getId)); // {cc=10, bb=20, aa=10}
+        Map<String, Integer> studentMap = list.stream().collect(Collectors.toMap(User::getName, User::getId)); // {00=11, 44=11, 11=22, 22=33, 33=44}
+        System.out.println("studentMap:" + studentMap);
 
         //字符串分隔符连接
-        String joinName = list.stream().map(User::getName).collect(Collectors.joining(",", "(", ")")); // (aa,bb,cc)
+        String joinName = list.stream().map(User::getName).collect(Collectors.joining(",", "(", ")")); // (33,22,11,44,00)
+        System.out.println("joinName:" + joinName);
 
         //聚合操作
         //1.学生总数
-        Long count = list.stream().collect(Collectors.counting()); // 3
+        Long count = list.stream().collect(Collectors.counting()); // 5
+        System.out.println("count:" + count);
         //2.最大年龄 (最小的minBy同理)
-        Integer maxAge = list.stream().map(User::getId).collect(Collectors.maxBy(Integer::compare)).get(); // 20
+        Integer maxAge = list.stream().map(User::getId).collect(Collectors.maxBy(Integer::compare)).get(); // 44
+        System.out.println("maxAge:" + maxAge);
         //3.所有人的年龄
-        Integer sumAge = list.stream().collect(Collectors.summingInt(User::getId)); // 40
+        Integer sumAge = list.stream().collect(Collectors.summingInt(User::getId)); // 121
+        System.out.println("sumAge:" + sumAge);
         //4.平均年龄
-        Double averageAge = list.stream().collect(Collectors.averagingDouble(User::getId)); // 13.333333333333334
+        Double averageAge = list.stream().collect(Collectors.averagingDouble(User::getId)); //24.2
+        System.out.println("averageAge:" + averageAge);
         // 带上以上所有方法
         DoubleSummaryStatistics statistics = list.stream().collect(Collectors.summarizingDouble(User::getId));
         System.out.println("count:" + statistics.getCount() + ",max:" + statistics.getMax() + ",sum:" + statistics.getSum() + ",average:" + statistics.getAverage());
 
         //分组
         Map<Integer, List<User>> ageMap = list.stream().collect(Collectors.groupingBy(User::getId));
+        System.out.println("ageMap:" + ageMap);
         //多重分组,先根据类型分再根据年龄分
         Map<String, Map<Integer, List<User>>> typeAgeMap = list.stream().collect(Collectors.groupingBy(User::getName, Collectors.groupingBy(User::getId)));
-
+        System.out.println("typeAgeMap:" + typeAgeMap);
         //分区
         //分成两部分，一部分大于10岁，一部分小于等于10岁
         Map<Boolean, List<User>> partMap = list.stream().collect(Collectors.partitioningBy(v -> v.getId() > 10));
-
+        System.out.println("partMap:" + partMap);
         //规约
         Integer allAge = list.stream().map(User::getId).collect(Collectors.reducing(Integer::sum)).get(); //40　　
+        System.out.println("allAge:" + allAge);
     }
 }
