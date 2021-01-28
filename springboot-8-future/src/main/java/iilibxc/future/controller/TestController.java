@@ -1,10 +1,7 @@
 package iilibxc.future.controller;
 
-import future.CustomerInfoService;
-import future.LearnRecordService;
-import future.Operate;
-import future.RemoteLoader;
 import iilibxc.future.entity.User;
+import iilibxc.future.service.AllService;
 import iilibxc.future.service.Service1;
 import iilibxc.future.service.Service2;
 import iilibxc.future.service.Service3;
@@ -76,9 +73,9 @@ public class TestController {
         };
         FutureTask<User> task1 = new FutureTask<>(idInfo46);
         new Thread(task1).start();
-        FutureTask<User> task2 = new FutureTask<>(idInfo46);
+        FutureTask<User> task2 = new FutureTask<>(idInfo47);
         new Thread(task2).start();
-        FutureTask<User> task3 = new FutureTask<>(idInfo46);
+        FutureTask<User> task3 = new FutureTask<>(idInfo48);
         new Thread(task3).start();
         List<User> list = new ArrayList<>();
         list.add(task1.get());
@@ -87,6 +84,26 @@ public class TestController {
         long end = System.currentTimeMillis();
         System.out.println("总共花费时间:" + (end - start));
 
+    }
+
+    @GetMapping("futureAsync")
+    public void futureAsync() {
+        long start = System.currentTimeMillis();
+        int x = 46;
+        List<AllService> services = Arrays.asList(service1, service2, service3);
+        ExecutorService executorService = Executors.newFixedThreadPool(Math.min(services.size(), 50));
+        List<CompletableFuture<User>> completableFutures = services
+                .stream()
+                .map(service -> CompletableFuture.supplyAsync(service::selectID, executorService))
+                .collect(toList());
+
+        List<User> customerDetail = completableFutures
+                .stream()
+                .map(CompletableFuture::join)
+                .collect(toList());
+        System.out.println(customerDetail);
+        long end = System.currentTimeMillis();
+        System.out.println("总共花费时间:" + (end - start));
     }
 
 }

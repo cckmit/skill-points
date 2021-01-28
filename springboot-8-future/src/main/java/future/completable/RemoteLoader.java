@@ -1,8 +1,8 @@
-package future;
+package future.completable;
 
 public interface RemoteLoader {
 
-    String load();
+    Info load();
 
     default void delay() {
         try {

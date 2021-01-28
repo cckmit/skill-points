@@ -1,4 +1,4 @@
-package future;
+package future.task;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;

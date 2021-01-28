@@ -1,10 +1,8 @@
-package future;
+package future.completable;
 
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
-import future.Operate.*;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
@@ -18,7 +16,7 @@ public class CompletableFutureTest {
     public void testSync() {
         long start = System.currentTimeMillis();
         List<RemoteLoader> remoteLoaders = Arrays.asList(new CustomerInfoService(), new LearnRecordService());
-        List<String> customerDetail = remoteLoaders.stream().map(RemoteLoader::load).collect(toList());
+        List<Info> customerDetail = remoteLoaders.stream().map(RemoteLoader::load).collect(toList());
         System.out.println(customerDetail);
         long end = System.currentTimeMillis();
         System.out.println("总共花费时间:" + (end - start));
@@ -29,11 +27,11 @@ public class CompletableFutureTest {
         long start = System.currentTimeMillis();
         ExecutorService executorService = Executors.newFixedThreadPool(2);
         List<RemoteLoader> remoteLoaders = Arrays.asList(new CustomerInfoService(), new LearnRecordService());
-        List<Future<String>> futures = remoteLoaders.stream()
+        List<Future<Info>> futures = remoteLoaders.stream()
                 .map(remoteLoader -> executorService.submit(remoteLoader::load))
                 .collect(toList());
 
-        List<String> customerDetail = futures.stream()
+        List<Info> customerDetail = futures.stream()
                 .map(future -> {
                     try {
                         return future.get();
@@ -53,7 +51,7 @@ public class CompletableFutureTest {
     public void testParallelStream() {
         long start = System.currentTimeMillis();
         List<RemoteLoader> remoteLoaders = Arrays.asList(new CustomerInfoService(), new LearnRecordService());
-        List<String> customerDetail = remoteLoaders.parallelStream().map(RemoteLoader::load).collect(toList());
+        List<Info> customerDetail = remoteLoaders.parallelStream().map(RemoteLoader::load).collect(toList());
         System.out.println(customerDetail);
         long end = System.currentTimeMillis();
         System.out.println("总共花费时间:" + (end - start));
@@ -65,10 +63,10 @@ public class CompletableFutureTest {
         List<RemoteLoader> remoteLoaders = Arrays.asList(
                 new CustomerInfoService(),
                 new LearnRecordService(),
-                new Operate.LabelService(),
-                new Operate.OrderService(),
-                new Operate.WatchRecordService());
-        List<String> customerDetail = remoteLoaders.parallelStream().map(RemoteLoader::load).collect(toList());
+                new LabelService(),
+                new OrderService(),
+                new WatchRecordService());
+        List<Info> customerDetail = remoteLoaders.parallelStream().map(RemoteLoader::load).collect(toList());
         System.out.println(customerDetail);
         long end = System.currentTimeMillis();
         System.out.println("总共花费时间:" + (end - start));
@@ -124,12 +122,12 @@ public class CompletableFutureTest {
                 new LabelService(),
                 new OrderService(),
                 new WatchRecordService());
-        List<CompletableFuture<String>> completableFutures = remoteLoaders
+        List<CompletableFuture<Info>> completableFutures = remoteLoaders
                 .stream()
                 .map(loader -> CompletableFuture.supplyAsync(loader::load))
                 .collect(toList());
 
-        List<String> customerDetail = completableFutures
+        List<Info> customerDetail = completableFutures
                 .stream()
                 .map(CompletableFuture::join)
                 .collect(toList());
@@ -150,12 +148,12 @@ public class CompletableFutureTest {
 
         ExecutorService executorService = Executors.newFixedThreadPool(Math.min(remoteLoaders.size(), 50));
 
-        List<CompletableFuture<String>> completableFutures = remoteLoaders
+        List<CompletableFuture<Info>> completableFutures = remoteLoaders
                 .stream()
                 .map(loader -> CompletableFuture.supplyAsync(loader::load, executorService))
                 .collect(toList());
 
-        List<String> customerDetail = completableFutures
+        List<Info> customerDetail = completableFutures
                 .stream()
                 .map(CompletableFuture::join)
                 .collect(toList());
@@ -163,5 +161,40 @@ public class CompletableFutureTest {
         System.out.println(customerDetail);
         long end = System.currentTimeMillis();
         System.out.println("总共花费时间:" + (end - start));
+    }
+    /*
+    public static CompletableFuture<Void> runAsync(Runnable runnable)
+    public static CompletableFuture<Void> runAsync(Runnable runnable, Executor executor)
+    public static <U> CompletableFuture<U> supplyAsync(Supplier<U> supplier)
+    public static <U> CompletableFuture<U> supplyAsync(Supplier<U> supplier, Executor executor)
+    */
+    //无返回值
+    @Test
+    public   void runAsync() throws Exception {
+        CompletableFuture<Void> future = CompletableFuture.runAsync(() -> {
+            try {
+                TimeUnit.SECONDS.sleep(1);
+            } catch (InterruptedException e) {
+            }
+            System.out.println("run end ...");
+        });
+
+        future.get();
+    }
+
+    //有返回值
+    @Test
+    public   void supplyAsync() throws Exception {
+        CompletableFuture<Long> future = CompletableFuture.supplyAsync(() -> {
+            try {
+                TimeUnit.SECONDS.sleep(1);
+            } catch (InterruptedException e) {
+            }
+            System.out.println("run end ...");
+            return System.currentTimeMillis();
+        });
+
+        long time = future.get();
+        System.out.println("time = "+time);
     }
 }

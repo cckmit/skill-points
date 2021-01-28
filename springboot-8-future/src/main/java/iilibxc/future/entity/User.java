@@ -5,11 +5,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.function.Supplier;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class User {
+public class User  {
 
     private Integer id;
 
@@ -18,4 +19,6 @@ public class User {
     private String password;
 
     private Date created;
+
+
 }
