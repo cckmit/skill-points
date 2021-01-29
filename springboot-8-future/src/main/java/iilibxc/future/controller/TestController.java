@@ -7,6 +7,8 @@ import iilibxc.future.service.Service2;
 import iilibxc.future.service.Service3;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
@@ -60,7 +62,7 @@ public class TestController {
             @Override
             public User call() throws Exception {
 
-                return service1.selectID(48);
+                return service2.selectID(48);
             }
         };
 
@@ -68,9 +70,40 @@ public class TestController {
             @Override
             public User call() throws Exception {
 
-                return service1.selectID(46);
+                return service3.selectID(46);
             }
         };
+        List<Callable<User>> callables = new ArrayList<>();
+        List<FutureTask<User>> futureTasks = Arrays.asList(new FutureTask<>(new Callable<User>() {
+            @Override
+            public User call() throws Exception {
+                return service3.selectID(46);
+            }
+        }), new FutureTask<>(new Callable<User>() {
+            @Override
+            public User call() throws Exception {
+                return service2.selectID(48);
+            }
+        }), new FutureTask<>(new Callable<User>() {
+            @Override
+            public User call() throws Exception {
+                return service1.selectID(47);
+            }
+        }));
+        List<Object> o = new ArrayList<>();
+        futureTasks.forEach(userFutureTask -> {
+            new Thread(userFutureTask).start();
+            if(userFutureTask.isDone()){
+                try {
+                    o.add(userFutureTask.get());
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
         FutureTask<User> task1 = new FutureTask<>(idInfo46);
         new Thread(task1).start();
         FutureTask<User> task2 = new FutureTask<>(idInfo47);
@@ -88,6 +121,9 @@ public class TestController {
 
     @GetMapping("futureAsync")
     public void futureAsync() {
+        //将RequestAttributes对象设置为子线程共享
+        ServletRequestAttributes sra = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+        RequestContextHolder.setRequestAttributes(sra, true);
         long start = System.currentTimeMillis();
         int x = 46;
         List<AllService> services = Arrays.asList(service1, service2, service3);
