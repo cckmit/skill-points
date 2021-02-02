@@ -2,15 +2,12 @@ package iilibxc.future.service;
 
 import iilibxc.future.entity.User;
 import iilibxc.future.mapper.UserMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-import java.lang.annotation.Annotation;
 import java.util.function.Supplier;
 
 @Service

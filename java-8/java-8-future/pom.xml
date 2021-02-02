@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <artifactId>java-8-future</artifactId>
    <modelVersion>4.0.0</modelVersion>
-    <name>java-8-future</name>
+    <name>java-8-iilibxc.future</name>
     <description>SpringBoot——java8新特性completablefuture</description>
     <packaging>jar</packaging>
 
