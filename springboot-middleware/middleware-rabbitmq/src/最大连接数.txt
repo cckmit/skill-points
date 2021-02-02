@@ -1,0 +1,12 @@
+-- mysql并发数设置 
+show VARIABLES like '%max_connections%';
+-- 查看当前链接数量
+show GLOBAL STATUS like 'Max_used_connections';
+-- max_used_connections/max_connections * 100%  = 2/512 = 0.0058
+-- max_used_connections/max_connections * 100%  (理想值=85%)
+set GLOBAL MAX_CONNECTIONS =1024;
+
+SHOW VARIABLES like '%max_connections%';
+
+set GLOBAL max_allowed_packet = 2*1024*1024*10;
+SHOW VARIABLES like '%max_allowed_packet';
