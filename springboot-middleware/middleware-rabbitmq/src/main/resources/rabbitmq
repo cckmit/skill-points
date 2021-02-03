@@ -1,0 +1,98 @@
+#默认localhost
+spring.rabbitmq.host=127.0.0.1
+#默认5672
+spring.rabbitmq.port=5672
+#用户名
+spring.rabbitmq.username=guest
+# 密码
+spring.rabbitmq.password=guest
+#连接到代理时用的虚拟主机
+spring.rabbitmq.virtual-host=192.168.99.100
+#连接到server的地址列表（以逗号分隔），先addresses后host
+spring.rabbitmq.addresses=
+#请求心跳超时时间，0为不指定，如果不指定时间单位默认为妙
+spring.rabbitmq.requested-heartbeat=1000
+#是否启用【发布确认】，默认false
+spring.rabbitmq.publisher-confirm-type=correlated
+#是否启用【发布返回】，默认false
+spring.rabbitmq.publisher-returns=false
+#连接超时时间，单位毫秒，0表示永不超时
+spring.rabbitmq.connection-timeout=1000
+
+
+rabbitmq:
+    host: 192.168.99.100
+    username: guest
+    password: guest
+    port: 5672
+    publisher-confirms: true
+    publisher-returns: true
+    listener:
+      direct:
+        acknowledge-mode: manual
+      simple:
+        prefetch: 2000
+
+
+package iilibxc.rmq.mq;
+
+import org.springframework.amqp.core.*;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+/*FIFO队列，先进先出*/
+//@Configuration
+public class RabbitMqConfig {
+
+    public static final String DIRECT_ROUTING_KEY_sendqueue = "iilibxc.directQueue";
+    public static final String TOPIC_ROUTING_KEY_sendqueue = "iilibxc.topicQueue";
+    public static final String DIRECT_ECXCHANGE = "iilibxc.directExchange";
+    public static final String TOPIC_ECXCHANGE = "iilibxc.topicExchange";
+
+
+    @Bean
+    public Queue directSendQueue() {
+        Queue queue = new Queue(DIRECT_ROUTING_KEY_sendqueue, true);
+        return queue;
+    }
+
+    @Bean
+    public DirectExchange directExchange() {
+        DirectExchange directExchange = new DirectExchange(DIRECT_ECXCHANGE);
+        return directExchange;
+    }
+
+    @Bean
+    public Binding directBind() {
+        return BindingBuilder.bind(directSendQueue()).to(directExchange()).with(DIRECT_ECXCHANGE);
+    }
+
+    /*----------------------------------------------------------------------------------------*/
+
+    @Bean
+    public Queue topSendQueue() {
+        Queue queue = new Queue(TOPIC_ROUTING_KEY_sendqueue, true);
+        return queue;
+    }
+
+    @Bean
+    public TopicExchange topicExchange() {
+        TopicExchange topicExchange = new TopicExchange(TOPIC_ECXCHANGE);
+        return topicExchange;
+    }
+
+    @Bean
+    public Binding topicBind() {
+        return BindingBuilder.bind(topSendQueue()).to(topicExchange()).with(TOPIC_ROUTING_KEY_sendqueue);
+    }
+    /*
+        direct：如果路由键匹配，则直接投递到对应的队列
+
+        fanout：不处理路由键，向所有与之绑定的队列投递消息
+
+        topic：处理路由键，按模式匹配，向符合规则的队列投递消息
+
+        headers：允许匹配消息的header，而非路由键，除此之外，direct完全一致，但性能差很多，基本不用了。
+
+    * */
+}

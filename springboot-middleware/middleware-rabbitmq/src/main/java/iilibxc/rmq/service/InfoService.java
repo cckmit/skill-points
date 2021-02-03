@@ -24,6 +24,7 @@ public class InfoService {
         map.put(5, "6");
         Info info = new Info(id, "" + (int) (Math.random() * 10000), new Date(), true, list, map);
         long e = System.currentTimeMillis();
+        System.out.println(info);
         System.out.println(Thread.currentThread().getName() + "数据库查询花费时间:" + (e - s));
         return info;
     }

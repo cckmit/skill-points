@@ -37,7 +37,7 @@ public class DirectRmqTest {
                         }
                         //userService.getUserList();
                         Integer message = 2021;//前端的传参
-                        amqpTemplate.convertAndSend(RabbitMqConfig.DIRECT_ROUTING_KEY_recvqueue, "routingKey.send", message);
+                        amqpTemplate.convertAndSend(RabbitMqConfig.DIRECT_ECXCHANGE, RabbitMqConfig.DIRECT_ROUTING_KEY_sendqueue, message);
                     }
             ).start();
         }

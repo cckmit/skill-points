@@ -23,8 +23,8 @@ public class RmqHandlerListener {
     @RabbitHandler
     public void onMessageTopic(Message message) {
 
-        Info info = infoService.getInfo(1);
-        amqpTemplate.convertAndSend("iilibxc.topicExchange", "iilibxc.topic.send", info);
+        Info info = infoService.getInfo(Integer.valueOf(String.valueOf(message.getBody())));
+        amqpTemplate.convertAndSend(RabbitMqConfig.TOPIC_ECXCHANGE, RabbitMqConfig.TOPIC_ROUTING_KEY_sendqueue, info);
     }
     /*@RabbitListener(queues = "topic.test")
     @RabbitHandler

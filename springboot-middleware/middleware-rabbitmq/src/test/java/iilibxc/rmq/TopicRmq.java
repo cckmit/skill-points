@@ -34,7 +34,7 @@ public class TopicRmq {
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
-                        Integer message = 2021;//前端的传参
+                        String message = "2021";//前端的传参
                         amqpTemplate.convertAndSend(RabbitMqConfig.TOPIC_ECXCHANGE, RabbitMqConfig.TOPIC_ROUTING_KEY_sendqueue, message);
                     }
             ).start();
