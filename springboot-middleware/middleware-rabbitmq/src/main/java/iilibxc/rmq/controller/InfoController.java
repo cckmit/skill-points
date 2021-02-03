@@ -1,7 +1,7 @@
 package iilibxc.rmq.controller;
 
 import iilibxc.rmq.entity.Info;
-import iilibxc.rmq.mq.RabbitMqConfig;
+import iilibxc.rmq.rabbitrmq.config.RabbitMqConfig;
 import iilibxc.rmq.service.InfoService;
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.web.bind.annotation.*;

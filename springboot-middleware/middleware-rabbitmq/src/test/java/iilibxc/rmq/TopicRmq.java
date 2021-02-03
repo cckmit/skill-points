@@ -1,6 +1,6 @@
 package iilibxc.rmq;
 
-import iilibxc.rmq.mq.RabbitMqConfig;
+import iilibxc.rmq.rabbitrmq.config.RabbitMqConfig;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.amqp.core.AmqpTemplate;

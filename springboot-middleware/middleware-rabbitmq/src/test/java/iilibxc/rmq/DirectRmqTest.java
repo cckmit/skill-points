@@ -1,6 +1,7 @@
 package iilibxc.rmq;
 
-import iilibxc.rmq.mq.RabbitMqConfig;
+import iilibxc.rmq.rabbitrmq.config.RabbitMqConfig;
+import iilibxc.rmq.service.OrderService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.amqp.core.AmqpTemplate;
@@ -16,8 +17,11 @@ public class DirectRmqTest {
 
     @Resource
     private AmqpTemplate amqpTemplate;
+    @Resource
+    private OrderService orderService;
 
     public static final int THREAD_NUM = 1000;
+
     @Test
     public void contextLoads() {
     }
@@ -35,9 +39,7 @@ public class DirectRmqTest {
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
-                        //userService.getUserList();
-                        Integer message = 2021;//前端的传参
-                        amqpTemplate.convertAndSend(RabbitMqConfig.DIRECT_ECXCHANGE, RabbitMqConfig.DIRECT_ROUTING_KEY_sendqueue, message);
+                        orderService.createOrder();
                     }
             ).start();
         }

@@ -1,8 +1,8 @@
-package iilibxc.rmq.mq;
+package iilibxc.rmq.rabbitrmq.config;
 
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.amqp.core.Message;
+import org.springframework.amqp.core.*;
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.connection.CorrelationData;
@@ -66,5 +66,4 @@ public class RabbitMqConfig {
         });
         return template;
     }
-
 }
