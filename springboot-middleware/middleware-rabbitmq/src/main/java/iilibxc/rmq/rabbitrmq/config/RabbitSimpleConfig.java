@@ -32,12 +32,6 @@ public class RabbitSimpleConfig {
         container.setMaxConcurrentConsumers(max_concurrency);//消费者最大并发值
         container.setPrefetchCount(prefetch);//某消费者一次监听可拉取的消息数
         container.setAcknowledgeMode(AcknowledgeMode.AUTO);//自动确认消息
-        container.setMessageListener(new ChannelAwareMessageListener() {
-            @Override
-            public void onMessage(Message message, Channel channel) throws Exception {
-                log.info("第二种方式接收消息：" + new String(message.getBody()));
-            }
-        });
         return container;
     }
 }

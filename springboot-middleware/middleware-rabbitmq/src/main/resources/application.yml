@@ -62,6 +62,7 @@ logging:
 
 
 order:
-  queue_name: order_queue_name
-  exchange_name: order_exchange_name
+  direct_queue_name: order_queue_name
+  direct_exchange_name: order_exchange_name
   routing_key_name: order_routing_key_name
+  queue_name2: order_queue_name2
