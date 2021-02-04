@@ -18,17 +18,19 @@ public class DirectQueue {
     private String ORDER_ROUTING_KEY_NAME;
 
     @Bean
-    public DirectExchange orderExchange(){
+    public DirectExchange orderExchange() {
         //创建持久化、非自动删除的交换器
-        return new DirectExchange(ORDER_EXCHANGE_NAME,true,false);
+        return new DirectExchange(ORDER_EXCHANGE_NAME, true, false);
     }
-    @Bean
-    public Queue orderQueue(){
+
+    @Bean(name = "orderQueue")
+    public Queue orderQueue() {
         //创建持久化的队列
-        return new Queue(ORDER_QUEUE_NAME,true);
+        return new Queue(ORDER_QUEUE_NAME, true);
     }
+
     @Bean
-    public Binding orderBinging(){
+    public Binding orderBinging() {
         //通过路由将队列和交换器进行绑定
         return BindingBuilder.bind(orderQueue()).to(orderExchange()).with(ORDER_ROUTING_KEY_NAME);
     }

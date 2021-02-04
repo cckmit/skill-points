@@ -13,7 +13,7 @@ import java.util.concurrent.CountDownLatch;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class DirectRmqTest {
+public class RmqTest {
 
     @Resource
     private AmqpTemplate amqpTemplate;
@@ -27,7 +27,7 @@ public class DirectRmqTest {
     }
 
     @Test
-    public void councurent() {
+    public void direct() {
         CountDownLatch countDownLatch = new CountDownLatch(THREAD_NUM);
         for (int i = 0; i < THREAD_NUM; i++) {
             new Thread(
@@ -35,7 +35,6 @@ public class DirectRmqTest {
                         countDownLatch.countDown();
                         try {
                             countDownLatch.await();
-                            System.out.println("---start---");
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
@@ -45,4 +44,21 @@ public class DirectRmqTest {
         }
     }
 
+    @Test
+    public void topic() {
+        CountDownLatch countDownLatch = new CountDownLatch(THREAD_NUM);
+        for (int i = 0; i < THREAD_NUM; i++) {
+            new Thread(
+                    () -> {
+                        countDownLatch.countDown();
+                        try {
+                            countDownLatch.await();
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+            ).start();
+        }
+    }
 }

@@ -16,10 +16,7 @@ import static org.springframework.amqp.rabbit.connection.CachingConnectionFactor
 @Configuration
 @Slf4j
 public class RabbitMqConfig {
-    public static final String DIRECT_ROUTING_KEY_sendqueue = "iilibxc.directQueue";
-    public static final String TOPIC_ROUTING_KEY_sendqueue = "iilibxc.topicQueue";
-    public static final String DIRECT_ECXCHANGE = "iilibxc.directExchange";
-    public static final String TOPIC_ECXCHANGE = "iilibxc.topicExchange";
+
     @Value("${spring.rabbitmq.host}")
     private String host;
     @Value("${spring.rabbitmq.port}")
@@ -29,17 +26,17 @@ public class RabbitMqConfig {
     @Value("${spring.rabbitmq.password}")
     private String password;
 
-    @Bean
+    @Bean(name = "connectionFactory")
     public ConnectionFactory connectionFactory() {
         CachingConnectionFactory connectionFactory = new CachingConnectionFactory(host, port);
         connectionFactory.setUsername(username);
         connectionFactory.setPassword(password);
         connectionFactory.setVirtualHost("/");
         connectionFactory.setPublisherReturns(true);
-        connectionFactory.setPublisherConfirms(true);
+        //connectionFactory.setPublisherConfirms(true);
         /*
         NONE值是禁用发布确认模式，是默认值
-        CORRELATED值是发布消息成功到交换器后会触发回调方法，如1示例
+        CORRELATED值是发布消息成功到交换器后会触发回调方法
         SIMPLE值经测试有两种效果:
         其一效果和CORRELATED值一样会触发回调方法，
         其二在发布消息成功后使用rabbitTemplate调用waitForConfirms或waitForConfirmsOrDie方法等待broker节点返回发送结果，

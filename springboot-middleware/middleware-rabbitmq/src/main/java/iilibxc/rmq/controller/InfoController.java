@@ -22,7 +22,6 @@ public class InfoController {
     @ResponseBody
     public Info GetUser(@PathVariable Integer id) {
         id = 2021;
-        amqpTemplate.convertAndSend(RabbitMqConfig.TOPIC_ECXCHANGE, RabbitMqConfig.TOPIC_ROUTING_KEY_sendqueue, id);
         return null;
     }
 }

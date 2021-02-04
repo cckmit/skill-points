@@ -18,6 +18,14 @@ spring:
     port: 5672
     username: guest
     password: guest
+    listener:
+      simple:
+        # 消费者初始并发值
+        concurrency: 5
+        # 消费者最大并发值
+        max-concurrency: 10
+        # 某消费者一次监听可拉取的消息数
+        prefetch: 3
 
   redis:
     host: localhost

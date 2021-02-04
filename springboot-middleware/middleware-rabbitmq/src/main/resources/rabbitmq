@@ -19,21 +19,6 @@ spring.rabbitmq.publisher-returns=false
 #连接超时时间，单位毫秒，0表示永不超时
 spring.rabbitmq.connection-timeout=1000
 
-
-rabbitmq:
-    host: 192.168.99.100
-    username: guest
-    password: guest
-    port: 5672
-    publisher-confirms: true
-    publisher-returns: true
-    listener:
-      direct:
-        acknowledge-mode: manual
-      simple:
-        prefetch: 2000
-
-
 package iilibxc.rmq.rabbitrmq;
 
 import org.springframework.amqp.core.*;
