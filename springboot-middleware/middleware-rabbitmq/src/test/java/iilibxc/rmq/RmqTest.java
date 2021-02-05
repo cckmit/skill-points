@@ -16,8 +16,6 @@ import java.util.concurrent.CountDownLatch;
 public class RmqTest {
 
     @Resource
-    private AmqpTemplate amqpTemplate;
-    @Resource
     private OrderService orderService;
 
     public static final int THREAD_NUM = 1000;

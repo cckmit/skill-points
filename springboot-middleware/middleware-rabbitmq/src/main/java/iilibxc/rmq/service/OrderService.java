@@ -10,22 +10,21 @@ import java.util.UUID;
 
 @Service
 public class OrderService {
-    @Value("${order.queue_name}")
-    private String ORDER_QUEUE_NAME;
-    @Value("${order.exchange_name}")
-    private String ORDER_EXCHANGE_NAME;
-    @Value("${order.routing_key_name}")
-    private String ORDER_ROUTING_KEY_NAME;
+    @Value("${order.i_fanout_exchange}")
+    private String I_FANOUT_EXCHANGE;
+    @Value("${order.i_direct_exchange}")
+    private String I_DIRECT_EXCHANGE;
+    @Value("${order.i_direct_routing}")
+    private String I_DIRECT_ROUTING;
 
     @Autowired
     RabbitTemplate template;
 
     public void createOrder() {
-        /**用户下单逻辑。。。。。。**/
 
-        /**用户下单逻辑。。。。。。**/
-        String content = "用户下单";
+        String content = ((int) (Math.random() * 1000)) + "用户下单";
         CorrelationData correlationData = new CorrelationData(UUID.randomUUID().toString());
-        template.convertAndSend(ORDER_EXCHANGE_NAME, ORDER_ROUTING_KEY_NAME, content, correlationData);//消息通知
+        template.convertAndSend(I_FANOUT_EXCHANGE, "", content);//消息通知，这里不需要设置路由
+        template.convertAndSend(I_DIRECT_EXCHANGE, I_DIRECT_ROUTING, content, correlationData);//消息通知
     }
 }

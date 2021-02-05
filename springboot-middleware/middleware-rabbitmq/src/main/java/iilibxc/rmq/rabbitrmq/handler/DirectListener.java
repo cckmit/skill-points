@@ -14,10 +14,10 @@ import javax.annotation.Resource;
 
 @Component
 @Slf4j
-@RabbitListener(queues = "${order.queue_name}")
-public class MqMsgListener {
+@RabbitListener(queues = "${order.i_direct_queue}")
+public class DirectListener {
     @RabbitHandler
     public void orderQueue(String msg) {
-        log.info("接收到的消息:" + msg);
+        log.info("Direct接收到的消息" + ((int) (Math.random() * 1000)) + ":" + msg);
     }
 }
