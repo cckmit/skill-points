@@ -11,7 +11,12 @@ import org.springframework.kafka.support.SendResult;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.util.concurrent.ListenableFutureCallback;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ConcurrentMap;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = BatchApplication.class)
@@ -25,7 +30,10 @@ public class Demo02ProducerTest {
     @Test
     public void testASyncSend() throws InterruptedException {
         logger.info("[testASyncSend][开始执行]");
-
+        List<String> list = new ArrayList();
+        list.add("X");
+        Collection<String> c = Collections.unmodifiableCollection(list);
+        c.add("Y");
         for (int i = 0; i < 3; i++) {
             int id = (int) (System.currentTimeMillis() / 1000);
             producer.asyncSend(id).addCallback(new ListenableFutureCallback<SendResult<Object, Object>>() {
