@@ -3,6 +3,7 @@ package iilibxc.springbootredis;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
+import org.springframework.util.StringUtils;
 
 import java.util.Collections;
 import java.util.List;
@@ -566,4 +567,32 @@ public class RedisUtil {
             return 0;
         }
     }
+    //缓存击穿的话，设置热点数据永不过期，或者加上互斥锁
+    /*public static String getData(String key) throws InterruptedException {
+        //从Redis查询数据
+        String result = getDataByKV(key);
+        //参数校验
+        if (StringUtils.isBlank(result)) {
+            try {
+                //获得锁
+                if (reenLock.tryLock()) {
+                    //去数据库查询
+                /result = getDataByDB(key);
+                    //校验
+                    if (StringUtils.isNotBlank(result)) {
+                        //插进缓存
+                        setDataToKV(key, result);
+                    }
+                } else {
+                    //睡一会再拿
+                    Thread.sleep(100L);
+                    result = getData(key);
+                }
+            } finally {
+                //释放锁
+                reenLock.unlock();
+            }
+        } return result;
+    }*/
 }
+
