@@ -1,4 +1,4 @@
-package iilibxc.strategy;
+package iilibxc.strategy.common;
 
 public enum Calculator {
     ADD{

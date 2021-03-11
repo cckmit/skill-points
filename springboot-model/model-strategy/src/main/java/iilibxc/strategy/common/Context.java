@@ -1,4 +1,4 @@
-package iilibxc.strategy;
+package iilibxc.strategy.common;
 
 public class Context {
 

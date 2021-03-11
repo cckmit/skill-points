@@ -1,4 +1,4 @@
-package iilibxc.strategy;
+package iilibxc.strategy.controller;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;

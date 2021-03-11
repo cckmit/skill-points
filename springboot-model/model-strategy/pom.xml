@@ -16,6 +16,11 @@
         <version>1.0.0</version>
     </parent>
     <dependencies>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.7.0</version>
+        </dependency>
     </dependencies>
 
     <!--构建工具-->

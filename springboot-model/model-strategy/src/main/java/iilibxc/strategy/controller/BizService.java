@@ -1,4 +1,4 @@
-package iilibxc.strategy;
+package iilibxc.strategy.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
