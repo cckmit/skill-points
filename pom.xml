@@ -6,6 +6,7 @@
     <groupId>iilibxc</groupId>
     <artifactId>1.0</artifactId>
     <version>1.0.0</version>
+
     <packaging>pom</packaging>
     <description>SpringBoot系列demo代码</description>
 

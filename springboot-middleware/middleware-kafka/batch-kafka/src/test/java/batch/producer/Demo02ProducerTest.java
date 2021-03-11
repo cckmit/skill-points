@@ -30,10 +30,6 @@ public class Demo02ProducerTest {
     @Test
     public void testASyncSend() throws InterruptedException {
         logger.info("[testASyncSend][开始执行]");
-        List<String> list = new ArrayList();
-        list.add("X");
-        Collection<String> c = Collections.unmodifiableCollection(list);
-        c.add("Y");
         for (int i = 0; i < 3; i++) {
             int id = (int) (System.currentTimeMillis() / 1000);
             producer.asyncSend(id).addCallback(new ListenableFutureCallback<SendResult<Object, Object>>() {
