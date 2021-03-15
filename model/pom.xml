@@ -8,6 +8,9 @@
         <version>1.0.0</version>
     </parent>
     <packaging>pom</packaging>
+    <modules>
+        <module>factory-refect</module>
+    </modules>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>model</artifactId>
