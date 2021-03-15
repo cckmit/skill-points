@@ -1,6 +1,6 @@
 package iilibxc.springbootdatasource.dao.test02;
 
-import iilibxc.springbootdatasource.bean.Order;
+import iilibxc.springbootdatasource.bean.*;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;

@@ -1,7 +1,7 @@
 package iilibxc.springbootdatasource.service;
 
-import iilibxc.springbootdatasource.bean.Order;
-import iilibxc.springbootdatasource.dao.test01.UserDao;
+import iilibxc.springbootdatasource.bean.*;
+import iilibxc.springbootdatasource.dao.test01.*;
 import iilibxc.springbootdatasource.dao.test02.OrderDao;
 import java.util.List;
 
