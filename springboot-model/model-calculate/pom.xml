@@ -5,7 +5,7 @@
 
     <artifactId>model-calculate</artifactId>
     <version>0.0.1</version>
-    <name>model-calculate</name>
+    <name>model-iilibxc.calculate</name>
     <description>SpringBoot系列——算法模式</description>
     <packaging>jar</packaging>
 

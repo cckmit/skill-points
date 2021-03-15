@@ -1,4 +1,4 @@
-package calculate;
+package iilibxc.calculate;
 
 public interface ICalculate {
 
