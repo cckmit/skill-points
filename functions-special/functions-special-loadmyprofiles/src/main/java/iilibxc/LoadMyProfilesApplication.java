@@ -1,4 +1,4 @@
-package iilibxc.springbootloadmyprofiles;
+package iilibxc;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
@@ -15,10 +15,10 @@ import org.springframework.stereotype.Component;
 
 @Component
 @SpringBootApplication
-public class SpringbootLoadmyprofilesApplication {
+public class LoadMyProfilesApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringbootLoadmyprofilesApplication.class, args);
+        SpringApplication.run(LoadMyProfilesApplication.class, args);
     }
 
     @Value("${iilibxc.xxx}")
