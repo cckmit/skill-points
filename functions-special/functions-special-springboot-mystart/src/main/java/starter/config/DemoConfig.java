@@ -1,12 +1,12 @@
 package starter.config;
 
-import com.demo.starter.properties.DemoProperties;
-import com.demo.starter.service.DemoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import starter.properties.DemoProperties;
+import starter.service.DemoService;
 
 @Configuration
 @EnableConfigurationProperties(DemoProperties.class)
